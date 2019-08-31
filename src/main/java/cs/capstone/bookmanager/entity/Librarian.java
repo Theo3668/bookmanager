@@ -4,14 +4,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
-public class Student {
+public class Librarian {
 
     //define fields
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int studentNumber;
+    @Column(name = "librarian_id")
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -19,29 +19,17 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email")
-    private String email;
-
     //define constructors
 
-    public Student(){}
+    public Librarian(){}
 
-    public Student(String firstName, String lastName, String email) {
+    public Librarian(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
     }
 
     //define getters and setters
 
-
-    public int getStudentNumber() {
-        return studentNumber;
-    }
-
-    public void setStudentNumber(int studentNumber) {
-        this.studentNumber = studentNumber;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -59,12 +47,12 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public int getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(int id) {
+        this.id = id;
     }
 
     //define tostring
@@ -72,11 +60,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "studentNumber=" + studentNumber +
+        return "Librarian{" +
+                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }
