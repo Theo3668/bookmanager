@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS `book_manager_database`;
 USE `book_manager_database`;
 --
--- Table structure for table `book`
+-- Table structure for table `Book`
 --
 
 DROP TABLE IF EXISTS `book`;
@@ -17,7 +17,7 @@ CREATE TABLE `book` (
 ) ENGINE=InnoDB CHARSET=latin1;
 
 --
--- Data for table `book`
+-- Data for table `Book`
 --
 
 INSERT INTO `book` VALUES

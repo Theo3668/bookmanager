@@ -3,8 +3,8 @@ package cs.capstone.bookmanager.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "account")
-public class account {
+@Table(name = "Account")
+public class Account {
 
     //define fields
 
@@ -21,9 +21,9 @@ public class account {
 
     //define constructors
 
-    public account(){}
+    public Account(){}
 
-    public account(int studentNumber, String password) {
+    public Account(int studentNumber, String password) {
         this.studentNumber = studentNumber;
         this.password = password;
     }
@@ -60,7 +60,7 @@ public class account {
 
     @Override
     public String toString() {
-        return "account{" +
+        return "Account{" +
                 "id=" + id +
                 ", studentNumber=" + studentNumber +
                 ", password='" + password + '\'' +
