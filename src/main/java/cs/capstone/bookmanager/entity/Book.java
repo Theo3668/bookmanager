@@ -14,7 +14,7 @@ public class Book {
     private int bookId;
 
     @Column(name = "student_number")
-    private int studentNumber;
+    private int currentHolder;
 
     @Column(name = "isbn")
     private String isbn;
@@ -30,8 +30,8 @@ public class Book {
     public Book() {
     }
 
-    public Book(int studentNumber, String isbn, String title, String category) {
-        this.studentNumber = studentNumber;
+    public Book(int currentHolder, String isbn, String title, String category) {
+        this.currentHolder = currentHolder;
         this.isbn = isbn;
         this.title = title;
         this.category = category;
@@ -46,12 +46,12 @@ public class Book {
         this.bookId = bookId;
     }
 
-    public int getStudentNumber() {
-        return studentNumber;
+    public int getCurrentHolder() {
+        return currentHolder;
     }
 
-    public void setStudentNumber(int studentNumber) {
-        this.studentNumber = studentNumber;
+    public void setCurrentHolder(int currentHolder) {
+        this.currentHolder = currentHolder;
     }
 
     public String getIsbn() {
@@ -86,7 +86,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
-                ", studentNumber=" + studentNumber +
+                ", currentHolder=" + currentHolder +
                 ", isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
                 ", category='" + category + '\'' +
