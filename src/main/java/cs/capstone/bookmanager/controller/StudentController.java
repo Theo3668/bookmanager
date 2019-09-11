@@ -3,6 +3,7 @@ package cs.capstone.bookmanager.controller;
 
 import java.util.List;
 
+import cs.capstone.bookmanager.entity.Account;
 import cs.capstone.bookmanager.entity.Student;
 import cs.capstone.bookmanager.service.StudentService;
 import org.springframework.stereotype.Controller;
@@ -61,6 +62,8 @@ public class StudentController {
 	}
 	@PostMapping("/save")
 	public String saveStudent(@ModelAttribute("student") Student student){
+		Account account = new Account("password");
+		student.setAccount(account);
 //		save the student
 		studentService.save(student);
 

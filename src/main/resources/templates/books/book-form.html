@@ -22,7 +22,7 @@
                          th:object="${book}" method="POST">
 
 <!--            add hidden form field to handle update-->
-            <input type="hidden" th:field="*{currentHolder}"/>
+            <input type="hidden" th:field="*{bookId}"/>
 
             <input type="text" th:field="*{isbn}"
                     class="form-control mb-4 col-4" placeholder="isbn">
@@ -30,11 +30,11 @@
             <input type="text" th:field="*{title}"
                    class="form-control mb-4 col-4" placeholder="title">
 
-            <input type="text" th:field="*{category}"
+            <input type="text" th:field="*{author}"
                    class="form-control mb-4 col-4" placeholder="category">
 
-            <input type="text" th:field="*{currentHolder}"
-                   class="form-control mb-4 col-4" placeholder="currentHolder">
+            <input type="text" th:field="*{image}"
+                   class="form-control mb-4 col-4" placeholder="bookHolder">
 
             <button type="submit" class="btn btn-info col-2">Save</button>
         </form>

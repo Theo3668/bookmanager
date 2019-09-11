@@ -3,18 +3,18 @@ package cs.capstone.bookmanager.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Book")
+@Table(name = "book")
 public class Book {
 
     //define fields
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
+    @Column(name = "id")
     private int bookId;
 
-    @Column(name = "student_number")
-    private int currentHolder;
+    @Column(name = "img")
+    private String image;
 
     @Column(name = "isbn")
     private String isbn;
@@ -22,20 +22,25 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "category")
-    private String category;
+    @Column(name = "author")
+    private String author;
+
+//    @OneToOne(mappedBy="book", cascade=CascadeType.ALL)
+//    private Account account;
 
     //define constructors
 
     public Book() {
     }
 
-    public Book(int currentHolder, String isbn, String title, String category) {
-        this.currentHolder = currentHolder;
+    public Book(String image, String isbn, String title, String author) {
+        this.image = image;
         this.isbn = isbn;
         this.title = title;
-        this.category = category;
+        this.author = author;
+//        this.account = account;
     }
+
     //define getters and setters
 
     public int getBookId() {
@@ -46,12 +51,12 @@ public class Book {
         this.bookId = bookId;
     }
 
-    public int getCurrentHolder() {
-        return currentHolder;
+    public String getImage() {
+        return image;
     }
 
-    public void setCurrentHolder(int currentHolder) {
-        this.currentHolder = currentHolder;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getIsbn() {
@@ -70,13 +75,21 @@ public class Book {
         this.title = title;
     }
 
-    public String getCategory() {
-        return category;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setAuthor(String author) {
+        this.author = author;
     }
+
+//    public Account getAccount() {
+//        return account;
+//    }
+//
+//    public void setAccount(Account account) {
+//        this.account = account;
+//    }
 
 
     //define tostring
@@ -86,10 +99,11 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
-                ", currentHolder=" + currentHolder +
+                ", image=" + image +
                 ", isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
-                ", category='" + category + '\'' +
+                ", author='" + author + '\'' +
+//                ", account=" + account +
                 '}';
     }
 }

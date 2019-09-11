@@ -22,7 +22,7 @@
                          th:object="${student}" method="POST">
 
 <!--            add hidden form field to handle update-->
-            <input type="hidden" th:field="*{currentHolder}"/>
+            <input type="hidden" th:field="*{studentNumber}"/>
 
             <input type="text" th:field="*{firstName}"
                     class="form-control mb-4 col-4" placeholder="First Name">

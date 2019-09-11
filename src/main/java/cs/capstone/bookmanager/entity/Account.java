@@ -3,47 +3,43 @@ package cs.capstone.bookmanager.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Account")
+@Table(name = "account")
 public class Account {
 
     //define fields
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "account_number")
-    private int id;
-
-    @Column(name = "student_number")
-    private int studentNumber;
+    @Column(name = "id")
+    private int accountNumber;
 
     @Column(name = "password")
     private String password;
+
+//    @OneToOne(mappedBy="account", cascade=CascadeType.ALL)
+//    private Student student;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="book_id")
+    private Book book;
 
     //define constructors
 
     public Account(){}
 
-    public Account(int studentNumber, String password) {
-        this.studentNumber = studentNumber;
+    public Account(String password) {
         this.password = password;
+//        this.student = student;
     }
 
     //define getters and setters
 
-    public int getId() {
-        return id;
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getStudentNumber() {
-        return studentNumber;
-    }
-
-    public void setStudentNumber(int studentNumber) {
-        this.studentNumber = studentNumber;
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public String getPassword() {
@@ -54,6 +50,14 @@ public class Account {
         this.password = password;
     }
 
+//    public Student getStudent() {
+//        return student;
+//    }
+//
+//    public void setStudent(Student student) {
+//        this.student = student;
+//    }
+
 
     //define tostring
 
@@ -61,9 +65,9 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + id +
-                ", studentNumber=" + studentNumber +
+                "accountNumber=" + accountNumber +
                 ", password='" + password + '\'' +
+//                ", student=" + student +
                 '}';
     }
 }

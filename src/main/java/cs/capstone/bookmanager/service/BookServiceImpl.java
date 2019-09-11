@@ -28,15 +28,15 @@ public class BookServiceImpl implements BookService {
 		Optional<Book> result = bookRepository.findById(theId);
 
 		Book book = null;
-		
+
 		if (result.isPresent()) {
 			book = result.get();
 		}
 		else {
-			// we didn't find the book
-			throw new RuntimeException("Did not find book id - " + theId);
+			// we didn't find the student
+			throw new RuntimeException("Did not find student id - " + theId);
 		}
-		
+
 		return book;
 	}
 

@@ -1,5 +1,7 @@
-CREATE DATABASE IF NOT EXISTS `book_manager_database`;
-USE `book_manager_database`;
+CREATE DATABASE IF NOT EXISTS `library_database`;
+USE `library_database`;
+
+SET FOREIGN_KEY_CHECKS = 0;
 --
 -- Table structure for table `membership`
 -- use this to check for library membership
@@ -7,18 +9,24 @@ USE `book_manager_database`;
 DROP TABLE IF EXISTS `account`;
 
 CREATE TABLE `account` (
-  `account_number` int(11) NOT NULL AUTO_INCREMENT,
-	`student_number` int(11),
-	`password` varchar(45),
-	PRIMARY KEY (`account_number`),
-	FOREIGN KEY (`student_number`) references student(student_number)
-) ENGINE=InnoDB CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(45) DEFAULT NULL,
+  `book_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_BOOK_idx` (`book_id`),
+  CONSTRAINT `FK_BOOK` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) 
+  ON DELETE NO ACTION 
+  ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Data for table `accounts`
 --
 
-INSERT INTO `accounts` VALUES
-	(3676,`acc3676` ,`admin123`),
-	(1246, `acc1246`,`password`);
+INSERT INTO `account` VALUES
+	(1,'admin123',1),
+    (2,'admin123',2),
+    (3,'admin123',3),
+    (4,'admin123',4),
+	(5,'admin123',5);
 

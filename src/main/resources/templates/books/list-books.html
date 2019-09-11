@@ -41,11 +41,12 @@
 			
 				<td th:text="${book.isbn}" />
 				<td th:text="${book.title}" />
-				<td th:text="${book.category}" />
-				<td th:text="${book.currentHolder}" />
+				<td th:text="${book.author}" />
+				<td th:text="${book.image}" />
 <!--				add update button/link-->
 				<td>
-					<a th:href="@{/books/showFormForUpdate(bookId =${book.bookId})}"
+					<a th:href="@{/books/showFormForUpdate(bookId =${book.bookId
+					})}"
 					    class="btn btn-info btn-sm">
 						Update
 					</a>

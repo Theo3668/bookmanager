@@ -22,6 +22,10 @@ public class Student {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="account_id")
+    private Account account;
+
     //define constructors
 
     public Student(){}
@@ -33,7 +37,6 @@ public class Student {
     }
 
     //define getters and setters
-
 
     public int getStudentNumber() {
         return studentNumber;
@@ -67,6 +70,15 @@ public class Student {
         this.email = email;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+
     //define tostring
 
 
@@ -77,6 +89,7 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", account=" + account +
                 '}';
     }
 }

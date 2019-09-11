@@ -43,11 +43,11 @@
 				<td th:text="${student.email}" />
 <!--				add update button/link-->
 				<td>
-					<a th:href="@{/students/showFormForUpdate(studentId =${student.currentHolder})}"
+					<a th:href="@{/students/showFormForUpdate(studentId =${student.studentNumber})}"
 					    class="btn btn-info btn-sm">
 						Update
 					</a>
-					<a th:href="@{/students/delete(studentId =${student.currentHolder})}"
+					<a th:href="@{/students/delete(studentId =${student.studentNumber})}"
 					   class="btn btn-danger btn-sm"
 					   onclick="if (!(confirm('Are you sure you want to remove this student ?')))return false">
 						Delete
