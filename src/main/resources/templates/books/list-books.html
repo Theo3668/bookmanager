@@ -27,26 +27,23 @@
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th>Book ID</th>
 				<th>ISBN</th>
 				<th>Title</th>
-				<th>Holder</th>
+				<th>Author</th>
 				<th>Action</th>
 
 			</tr>
 		</thead>
 		
 		<tbody>
-			<tr th:each="book : ${books}">
+			<tr th:each="book: ${books}">
 			
 				<td th:text="${book.isbn}" />
 				<td th:text="${book.title}" />
 				<td th:text="${book.author}" />
-				<td th:text="${book.image}" />
 <!--				add update button/link-->
 				<td>
-					<a th:href="@{/books/showFormForUpdate(bookId =${book.bookId
-					})}"
+					<a th:href="@{/books/showFormForUpdate(bookId =${book.bookId})}"
 					    class="btn btn-info btn-sm">
 						Update
 					</a>

@@ -14,8 +14,8 @@ public class BookServiceImpl implements BookService {
 	private BookRepository bookRepository;
 
 	@Autowired
-	public BookServiceImpl(BookRepository bookRepository) {
-        bookRepository = bookRepository;
+	public BookServiceImpl(BookRepository theBookRepository) {
+        bookRepository = theBookRepository;
 	}
 	
 	@Override
@@ -34,7 +34,7 @@ public class BookServiceImpl implements BookService {
 		}
 		else {
 			// we didn't find the student
-			throw new RuntimeException("Did not find student id - " + theId);
+			throw new RuntimeException("Did not find book id - " + theId);
 		}
 
 		return book;
