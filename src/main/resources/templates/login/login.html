@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
+    <title>Login</title>
+</head>
+
+    <body>
+        <div class="login-box">
+            <img src="../static/images/circle-cropped_filter.png" class="avatar">
+                <h1> Login here</h1>
+                    <form>
+                        <p>Email address</p>
+                        <input type="text" name="username" placeholder="email address">
+                        <p>Password</p>
+                        <input type="password" name="password" placeholder="username">
+                        <button type="button" class="btn"><a th:href="@{/login/student}">Student</a></button>
+                        <button type = "button" class = "btn"><a th:href="@{/students/list}">Admin</a></button>
+                        <!--<a href="reset-password.html">Forgot Password</a>-->
+                    </form>
+        </div>
+    </body>
+</html>

@@ -25,8 +25,8 @@ public class Book {
     @Column(name = "author")
     private String author;
 
-//    @OneToOne(mappedBy="book", cascade=CascadeType.ALL)
-//    private Account account;
+    @ManyToOne
+    private Account account;
 
     //define constructors
 
@@ -38,7 +38,6 @@ public class Book {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-//        this.account = account;
     }
 
     //define getters and setters
@@ -82,14 +81,6 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-//    public Account getAccount() {
-//        return account;
-//    }
-//
-//    public void setAccount(Account account) {
-//        this.account = account;
-//    }
 
 
     //define tostring

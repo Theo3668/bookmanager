@@ -14,18 +14,21 @@
 
 <body>
 
-<div class="container">
+<div class="jumbotron">
+	<div class="container">
+		<nav class="nav nav-pills nav-fill">
+			<a class="nav-item nav-link" href="#" th:href="@{/students/list}">Students</a>
+			<a class="nav-item nav-link active" href="#" th:href="@{/books/list}">Books</a>
+		</nav>
+		<hr>
 
-	<h3>Books</h3>
-	<hr>
-
-<!--	Add a buttton-->
-	<a th:href="@{/books/showFormForAdd}"
-	class="btn btn-primary btn-sm mb-3">
-		Add Book
-	</a>
-	<table class="table table-bordered table-striped">
-		<thead class="thead-dark">
+		<!--	Add a buttton-->
+		<a th:href="@{/books/showFormForAdd}"
+		   class="btn btn-primary btn-sm mb-3">
+			Add Book
+		</a>
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
 			<tr>
 				<th>Book ID</th>
 				<th>ISBN</th>
@@ -34,20 +37,20 @@
 				<th>Action</th>
 
 			</tr>
-		</thead>
-		
-		<tbody>
+			</thead>
+
+			<tbody>
 			<tr th:each="book : ${books}">
-			
+
 				<td th:text="${book.isbn}" />
 				<td th:text="${book.title}" />
 				<td th:text="${book.author}" />
 				<td th:text="${book.image}" />
-<!--				add update button/link-->
+				<!--				add update button/link-->
 				<td>
 					<a th:href="@{/books/showFormForUpdate(bookId =${book.bookId
 					})}"
-					    class="btn btn-info btn-sm">
+					   class="btn btn-info btn-sm">
 						Update
 					</a>
 					<a th:href="@{/books/delete(bookId =${book.bookId})}"
@@ -57,9 +60,10 @@
 					</a>
 				</td>
 			</tr>
-		</tbody>		
-	</table>
-	
+			</tbody>
+		</table>
+	</div>
+
 </div>
 	
 </body>

@@ -14,18 +14,21 @@
 
 <body>
 
-<div class="container">
+<div class="jumbotron">
+	<div class="container">
+		<nav class="nav nav-pills nav-fill">
+			<a class="nav-item nav-link active" href="#" th:href="@{/students/list}">Students</a>
+			<a class="nav-item nav-link" href="#" th:href="@{/books/list}">Books</a>
+		</nav>
+		<hr>
 
-	<h3>Students</h3>
-	<hr>
-
-<!--	Add a buttton-->
-	<a th:href="@{/students/showFormForAdd}"
-	class="btn btn-primary btn-sm mb-3">
-		Add Student
-	</a>
-	<table class="table table-bordered table-striped">
-		<thead class="thead-dark">
+		<!--	Add a buttton-->
+		<a th:href="@{/students/showFormForAdd}"
+		   class="btn btn-primary btn-sm mb-3">
+			Add Student
+		</a>
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
 			<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
@@ -33,29 +36,30 @@
 				<th>Action</th>
 
 			</tr>
-		</thead>
-		
-		<tbody>
+			</thead>
+
+			<tbody>
 			<tr th:each="student : ${students}">
-			
+
 				<td th:text="${student.firstName}" />
 				<td th:text="${student.lastName}" />
 				<td th:text="${student.email}" />
-<!--				add update button/link-->
+				<!--				add update button/link-->
 				<td>
 					<a th:href="@{/students/showFormForUpdate(studentId =${student.studentNumber})}"
-					    class="btn btn-info btn-sm">
+					   class="btn btn-info btn-sm">
 						Update
 					</a>
-					<a th:href="@{/students/delete(studentId =${student.studentNumber})}"
+					<a href="#" th:href="@{/students/delete(studentId =${student.studentNumber})}"
 					   class="btn btn-danger btn-sm"
 					   onclick="if (!(confirm('Are you sure you want to remove this student ?')))return false">
 						Delete
 					</a>
 				</td>
 			</tr>
-		</tbody>		
-	</table>
+			</tbody>
+		</table>
+	</div>
 	
 </div>
 	

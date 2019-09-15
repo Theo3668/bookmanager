@@ -30,6 +30,16 @@ public class BookController {
 		
 		return "books/list-books";
 	}
+	@GetMapping("/listt")
+	public String displayBooks(Model model) {
+
+		List <Book> books = bookService.findAll();
+
+		// add to the spring model
+		model.addAttribute("books", books);
+
+		return "books/books";
+	}
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model model){
 		Book book = new Book();
