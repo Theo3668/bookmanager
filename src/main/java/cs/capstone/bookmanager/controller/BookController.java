@@ -3,10 +3,15 @@ package cs.capstone.bookmanager.controller;
 
 import cs.capstone.bookmanager.entity.Book;
 import cs.capstone.bookmanager.service.BookService;
+import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Controller
@@ -75,6 +80,10 @@ public class BookController {
 		bookService.save(book);
 
 //		use a redirect to prevent duplicate submissions
+		return "redirect:/books/list";
+	}
+	@ExceptionHandler(ConstraintViolationException.class)
+	public String handleError() {
 		return "redirect:/books/list";
 	}
 }
