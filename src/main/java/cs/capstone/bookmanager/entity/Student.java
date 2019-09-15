@@ -1,6 +1,8 @@
 package cs.capstone.bookmanager.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "student")
@@ -25,6 +27,9 @@ public class Student {
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="account_id")
     private Account account;
+
+    @OneToMany(mappedBy = "student",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    private List<Book> books;
 
     //define constructors
 
@@ -78,8 +83,22 @@ public class Student {
         this.account = account;
     }
 
+    public List<Book> getBooks() {
+        return books;
+    }
 
-    //define tostring
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    public void add(Book tempBook){
+        if (books == null){
+            books= new ArrayList<>();
+        }
+        books.add(tempBook);
+        tempBook.setStudent(this);
+    }
+//define tostring
 
 
     @Override

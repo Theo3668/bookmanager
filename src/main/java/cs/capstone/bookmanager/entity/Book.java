@@ -25,8 +25,9 @@ public class Book {
     @Column(name = "author")
     private String author;
 
-    @ManyToOne
-    private Account account;
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name = "student_id")
+    private Student student;
 
     //define constructors
 
@@ -82,6 +83,14 @@ public class Book {
         this.author = author;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
 
     //define tostring
 
@@ -90,11 +99,11 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
-                ", image=" + image +
+                ", image='" + image + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-//                ", account=" + account +
+                ", student=" + student +
                 '}';
     }
 }

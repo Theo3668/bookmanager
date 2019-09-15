@@ -11,12 +11,7 @@ DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(45) DEFAULT NULL,
-  `book_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_BOOK_idx` (`book_id`),
-  CONSTRAINT `FK_BOOK` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) 
-  ON DELETE NO ACTION 
-  ON UPDATE NO ACTION
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
@@ -24,9 +19,16 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` VALUES
-	(1,'admin123',1),
-    (2,'admin123',2),
-    (3,'admin123',3),
-    (4,'admin123',4),
-	(5,'admin123',5);
+	(1,'admin123'),
+    (2,'admin123'),
+    (3,'admin123'),
+    (4,'admin123'),
+	(5,'admin123'),
+    (6,'admin123'),
+    (7,'admin123'),
+    (8,'admin123'),
+    (9,'admin123'),
+    (10,'admin123'),
+    (11,'admin123'),
+    (12,'admin123');
 

@@ -30,20 +30,24 @@
 		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
 			<tr>
+				<th>Student Number</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
+				<th>Account Number</th>
 				<th>Action</th>
+
 
 			</tr>
 			</thead>
 
 			<tbody>
 			<tr th:each="student : ${students}">
-
+				<td th:text="${student.studentNumber}" />
 				<td th:text="${student.firstName}" />
 				<td th:text="${student.lastName}" />
 				<td th:text="${student.email}" />
+				<td th:text="${student.account.accountNumber}" />
 				<!--				add update button/link-->
 				<td>
 					<a th:href="@{/students/showFormForUpdate(studentId =${student.studentNumber})}"

@@ -31,7 +31,14 @@ INSERT INTO `student` VALUES
 	(2,'Emma','Baumgarten','emma@luv2code.com',2),
 	(3,'Avani','Gupta','avani@luv2code.com',3),
 	(4,'Yuri','Petrov','yuri@luv2code.com',4),
-	(5,'Juan','Vega','juan@luv2code.com',5);
+    (5,'Yuri','Petrov','yuri@luv2code.com',5),
+    (6,'Yuri','Petrov','yuri@luv2code.com',6),
+    (7,'Yuri','Petrov','yuri@luv2code.com',7),
+    (8,'Yuri','Petrov','yuri@luv2code.com',8),
+    (9,'Yuri','Petrov','yuri@luv2code.com',9),
+    (10,'Yuri','Petrov','yuri@luv2code.com',10),
+    (11,'Yuri','Petrov','yuri@luv2code.com',11),
+	(12,'Juan','Vega','juan@luv2code.com',12);
 
 
 

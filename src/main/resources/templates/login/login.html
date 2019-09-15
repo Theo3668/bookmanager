@@ -19,13 +19,18 @@
         <div class="login-box">
             <img src="../static/images/circle-cropped_filter.png" class="avatar">
                 <h1> Login here</h1>
-                    <form>
-                        <p>Email address</p>
-                        <input type="text" name="username" placeholder="email address">
-                        <p>Password</p>
-                        <input type="password" name="password" placeholder="username">
-                        <button type="button" class="btn"><a th:href="@{/login/student}">Student</a></button>
-                        <button type = "button" class = "btn"><a th:href="@{/students/list}">Admin</a></button>
+                    <form th:action="@{/login/student}"
+                          th:object="${account}" method="GET">
+                        <!--<input type="hidden" th:field="*{accountNumber}"/>-->
+
+                        <input type="text" th:field="*{accountNumber}"
+                               class="form-control mb-4 col-4" placeholder="student number">
+
+                        <input type="text" th:field="*{password}"
+                               class="form-control mb-4 col-4" placeholder="email">
+                        <!--<button type="button" class="btn"><a th:href="@{/login/student}">Student</a></button>-->
+                        <button type="submit" class="btn btn-info col-2">Student</button>
+                        <!--<button type = "button" class = "btn"><a th:href="@{/students/list}">Admin</a></button>-->
                         <!--<a href="reset-password.html">Forgot Password</a>-->
                     </form>
         </div>
