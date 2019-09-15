@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
 
     <title>Home</title>
 </head>
@@ -19,8 +19,8 @@
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#" th:href="@{/login/reserved}">Books Reserved</a></li>
+      <li class="active"><a th:href="@{/login/student}">Home</a></li>
+      <li><a th:href="@{/login/reserved}">Books Reserved</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#">Profile</a></li>
@@ -44,18 +44,30 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-2 " th:each="book : ${books}">
+        <div class="col-sm-2 " th:each="book : ${books}">
             <!--<h2 th:text="${book.title}"></h2>-->
             <!--<h3 th:text="${book.author}"></h3>-->
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." th:src="@{books.image}" alt="Card image cap"/>
+            <div class="card" style="width: 18rem; height: content-box">
+                <img class="card-img-top" src="${/images/book2.jpg}" th:src="@{books.image}" alt="Card image cap"/>
                 <div class="card-body">
                     <h5 class="card-title" th:text="${book.title}"></h5>
                     <p class="card-text" th:text="${book.author}"></p>
-                    <a href="#" class="btn btn-primary">Request</a>
+                    <!--<a href="#" class="btn btn-primary">Request</a>-->
+                    <a th:href="@{/login/delete(bookId =${book.bookId})}"
+                       class="btn btn-primary btn-lg">
+                        Request
+                    </a>
                 </div>
             </div>
         </div>
+        <!--<div class="card" style="width: 18rem;">-->
+            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+            <!--<div class="card-body">-->
+                <!--<h5 class="card-title">Card title</h5>-->
+                <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+            <!--</div>-->
+        <!--</div>-->
 
     </div>
 </div>

@@ -19,8 +19,8 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Books Reserved</a></li>
+            <li class="active"><a th:href="@{/login/student}">Home</a></li>
+            <li><a th:href="@{/login/reserved}">Books Reserved</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Profile</a></li>
@@ -44,12 +44,12 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-2 " th:each="book : ${reservedBooks}">
+        <div class="col-2 " th:each="reservedBook : ${reservedBooks}">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="..." th:src="@{books.image}" alt="Card image cap"/>
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${book.title}"></h5>
-                    <p class="card-text" th:text="${book.author}"></p>
+                    <h5 class="card-title" th:text="${reservedBook.title}"></h5>
+                    <p class="card-text" th:text="${reservedBook.author}"></p>
                     <a href="#" class="btn btn-primary">Return</a>
                 </div>
             </div>

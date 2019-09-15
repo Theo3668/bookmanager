@@ -10,7 +10,7 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
-    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
     <title>Login</title>
 </head>
@@ -24,14 +24,19 @@
                         <!--<input type="hidden" th:field="*{accountNumber}"/>-->
 
                         <input type="text" th:field="*{accountNumber}"
-                               class="form-control mb-4 col-4" placeholder="student number">
+                               class="form-control mb-6 col-6" placeholder="student number">
 
-                        <input type="text" th:field="*{password}"
-                               class="form-control mb-4 col-4" placeholder="email">
+                        <input type="password" th:field="*{password}"
+                               class="form-control mb-6 col-6" placeholder="password">
                         <!--<button type="button" class="btn"><a th:href="@{/login/student}">Student</a></button>-->
-                        <button type="submit" class="btn btn-info col-2">Student</button>
+                        <button type="submit" class="btn btn-secondary btn-lg">Student</button>
                         <!--<button type = "button" class = "btn"><a th:href="@{/students/list}">Admin</a></button>-->
                         <!--<a href="reset-password.html">Forgot Password</a>-->
+                    </form>
+            <hr>
+                    <form action="">
+                        <a class="btn btn-secondary btn-lg" href="#" th:href="@{/students/list}" role="button">Administrator</a>
+
                     </form>
         </div>
     </body>

@@ -5,16 +5,15 @@ import cs.capstone.bookmanager.entity.Book;
 import cs.capstone.bookmanager.entity.Student;
 import cs.capstone.bookmanager.service.BookService;
 import cs.capstone.bookmanager.service.StudentService;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Controller
 @RequestMapping("/login")
+@SessionAttributes("account")
 public class LoginController {
 
     private StudentService studentService;
@@ -43,13 +42,29 @@ public class LoginController {
         model.addAttribute("books", books);
         return "homepage/books";
     }
+
     @GetMapping("/reserved")
-    public String showReservedBooks(@ModelAttribute("student")Student student, Model model){
+    public String showReservedBooks(@ModelAttribute("account")Account account, Model model){
         // add to the spring model
 //        int studentId = studentService.findById(accountId).getStudentNumber();
+        Student student = studentService.findById(account.getAccountNumber());
+//        model.addAttribute("student",student);
 
         model.addAttribute("reservedBooks",student.getBooks());
         return "homepage/reserved-books";
+    }
+    @GetMapping("/delete")
+    public String delete(@ModelAttribute("account")Account account,@RequestParam("bookId")int bookId,Model model){
+        Student student = studentService.findById(account.getAccountNumber());
+        student.add(bookService.findById(bookId));
+
+        List<Book> books = bookService.findAll();
+
+        // add to the spring model
+        model.addAttribute("books", books);
+
+//		redirect to books/list
+        return "homepage/books";
     }
 //    @ExceptionHandler(EntityNotFoundException.class)
 //    public String handleError() {
