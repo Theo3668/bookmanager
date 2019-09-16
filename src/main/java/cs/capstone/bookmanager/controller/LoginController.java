@@ -57,6 +57,7 @@ public class LoginController {
     public String delete(@ModelAttribute("account")Account account,@RequestParam("bookId")int bookId,Model model){
         Student student = studentService.findById(account.getAccountNumber());
         student.add(bookService.findById(bookId));
+        studentService.save(student);
 
         List<Book> books = bookService.findAll();
 
@@ -65,6 +66,20 @@ public class LoginController {
 
 //		redirect to books/list
         return "homepage/books";
+    }
+    @GetMapping("/remove")
+    public String remove(@ModelAttribute("account")Account account,@RequestParam("bookId")int bookId,Model model){
+        Student student = studentService.findById(account.getAccountNumber());
+        student.remove(bookService.findById(bookId));
+        studentService.save(student);
+
+        List<Book> books = student.getBooks();
+
+        // add to the spring model
+        model.addAttribute("reservedBooks", books);
+
+//		redirect to books/list
+        return "homepage/reserved-books";
     }
 //    @ExceptionHandler(EntityNotFoundException.class)
 //    public String handleError() {

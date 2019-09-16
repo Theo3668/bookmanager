@@ -28,7 +28,7 @@ public class Student {
     @JoinColumn(name="account_id")
     private Account account;
 
-    @OneToMany(mappedBy = "student",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "student",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
     private List<Book> books;
 
     //define constructors
@@ -97,6 +97,12 @@ public class Student {
         }
         books.add(tempBook);
         tempBook.setStudent(this);
+    }
+    public void remove(Book tempBook){
+        if (!books.isEmpty()){
+            tempBook.setStudent(null);
+            books.remove(tempBook);
+        }
     }
 //define tostring
 
