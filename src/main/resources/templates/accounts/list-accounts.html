@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<title>Books</title>
+	<title>Accounts</title>
 </head>
 
 <body>
@@ -17,47 +17,43 @@
 <div class="jumbotron">
 	<div class="container">
 		<nav class="nav nav-pills nav-fill">
-			<a class="nav-item nav-link" href="#" th:href="@{/students/list}">Students</a>
-			<a class="nav-item nav-link" href="#" th:href="@{/accounts/list}">Accounts</a>
-			<a class="nav-item nav-link active" href="#" th:href="@{/books/list}">Books</a>
+			<a class="nav-item nav-link " href="#" th:href="@{/students/list}">Students</a>
+			<a class="nav-item nav-link active" href="#" th:href="@{/accounts/list}">Accounts</a>
+			<a class="nav-item nav-link" href="#" th:href="@{/books/list}">Books</a>
 		</nav>
 		<hr>
 
 		<!--	Add a buttton-->
-		<a th:href="@{/books/showFormForAdd}"
+		<a th:href="@{/accounts/showFormForAdd}"
 		   class="btn btn-primary btn-sm mb-3">
-			Add Book
+			Add Account
 		</a>
 		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
 			<tr>
-				<th>Book ID</th>
-				<th>ISBN</th>
-				<th>Title</th>
-				<th>Author</th>
-                <th>Image</th>
+				<th>ID</th>
+				<th>Password</th>
 				<th>Action</th>
+
+
 
 			</tr>
 			</thead>
 
 			<tbody>
-			<tr th:each="book : ${books}">
-                <td th:text="${book.bookId}" />
-				<td th:text="${book.isbn}" />
-				<td th:text="${book.title}" />
-				<td th:text="${book.author}" />
-				<td th:text="${book.image}" />
+			<tr th:each="account : ${accounts}">
+				<td th:text="${account.accountNumber}" />
+				<td th:text="${account.password}" />
+
 				<!--				add update button/link-->
 				<td>
-					<a th:href="@{/books/showFormForUpdate(bookId =${book.bookId
-					})}"
+					<a th:href="@{/accounts/showFormForUpdate(accountId =${account.accountNumber})}"
 					   class="btn btn-info btn-sm">
 						Update
 					</a>
-					<a th:href="@{/books/delete(bookId =${book.bookId})}"
+					<a href="#" th:href="@{/accounts/delete(accountId =${account.accountNumber})}"
 					   class="btn btn-danger btn-sm"
-					   onclick="if (!(confirm('Are you sure you want to remove this book ?')))return false">
+					   onclick="if (!(confirm('Are you sure you want to remove this student ?')))return false">
 						Delete
 					</a>
 				</td>
@@ -65,7 +61,7 @@
 			</tbody>
 		</table>
 	</div>
-
+	
 </div>
 	
 </body>
